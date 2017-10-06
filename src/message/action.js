@@ -594,11 +594,12 @@ function PlayDtmf() {
  * Park Action.
  * @constructor
  * @see Action(String)
- * @see See <a href="https://wiki.asterisk.org/wiki/display/AST/ManagerAction_Park">https://wiki.asterisk.org/wiki/display/AST/ManagerAction_Park</a>.
+ * @see See <a href="https://wiki.asterisk.org/wiki/display/AST/Asterisk+13+ManagerAction_Park">https://wiki.asterisk.org/wiki/display/AST/Asterisk+13+ManagerAction_Park</a>.
  * @property {String} Channel Channel name to park
- * @property {String} Channel2 Channel to announce park info to (and return to if timeout)
- * @property {String} Timeout Optional number of milliseconds to wait before callback
- * @property {String} Parkinglot Optional parking lot to park channel in
+ * @property {String} TimeoutChannel [OPTIONAL] Channel name to use when constructing the dial string that will be dialed if the parked channel times out. If TimeoutChannel is in a two party bridge with Channel, then TimeoutChannel will receive an announcement and be treated as having parked Channel in the same manner as the Park Call DTMF feature.
+ * @property {String} AnnounceChannel [OPTIONAL] If specified, then this channel will receive an announcement when Channel is parked if AnnounceChannel is in a state where it can receive announcements (AnnounceChannel must be bridged). AnnounceChannel has no bearing on the actual state of the parked call.
+ * @property {String} Timeout [OPTIONAL] Overrides the timeout of the parking lot for this park action. Specified in milliseconds, but will be converted to seconds. Use a value of 0 to disable the timeout.
+ * @property {String} Parkinglot [OPTIONAL] Optional parking lot to park channel in
  * @augments Action
  */
 function Park() {
