@@ -769,6 +769,30 @@ function Bridge() {
 }
 
 /**
+ * BridgeInfo Action.
+ * @constructor
+ * @see Action(String)
+ * @see See <a href="https://wiki.asterisk.org/wiki/display/AST/Asterisk+13+ManagerAction_BridgeInfo">https://wiki.asterisk.org/wiki/display/AST/Asterisk+13+ManagerAction_BridgeInfo</a>.
+ * @augments Action
+ * @property {String} BridgeUniqueid The unique ID of the bridge about which to retrieve information.
+ */
+function BridgeInfo() {
+	BridgeInfo.super_.call(this, 'BridgeInfo');
+}
+
+/**
+ * BridgeDestroy Action.
+ * @constructor
+ * @see Action(String)
+ * @see See <a href="https://wiki.asterisk.org/wiki/display/AST/Asterisk+13+ManagerAction_BridgeDestroy">https://wiki.asterisk.org/wiki/display/AST/Asterisk+13+ManagerAction_BridgeDestroy</a>.
+ * @augments Action
+ * @property {String} BridgeUniqueid The unique ID of the bridge to destroy.
+ */
+function BridgeDestroy() {
+	BridgeDestroy.super_.call(this, 'BridgeDestroy');
+}
+
+/**
  * ShowDialPlan Action.
  * @constructor
  * @see Action(String)
@@ -1281,6 +1305,8 @@ util.inherits(Action, message.Message);
         Originate,
         Redirect,
         Bridge,
+        BridgeInfo,
+        BridgeDestroy,
         UnpauseMonitor,
         StopMonitor,
         ShowDialPlan,
